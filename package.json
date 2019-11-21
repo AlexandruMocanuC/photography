@@ -1,0 +1,24 @@
+{
+	"name": "Protography",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "private",
+	"scripts": {
+		"dev": "next",
+		"start": "next start",
+		"build": "next build",
+		"export": "yarn clearcache && next build && next export -o public && touch public/.nojekyll",
+		"deploy": "git subtree push --prefix public origin gh-pages",
+		"clearcache": "rm -rf node_modules/.cache"
+	},
+	"dependencies": {
+		"react": "^16.12.0",
+		"react-device-detect": "1.9.10",
+		"react-dom": "^16.12.0",
+		"react-spring": "^8.0.27"
+	},
+	"devDependencies": {
+		"@zeit/next-css": "^1.0.1",
+		"next": "^9.1.4"
+	}
+}
