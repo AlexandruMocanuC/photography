@@ -11,7 +11,6 @@ export default ({ isSubItem, view, isSelected, onSelect = () => {} }) => (
 		}`}
 		onClick={() => {
 			Router.push(`${BASE}/`, `${BASE}/${view == "home" ? "" : view}`);
-			onSelect(view);
 		}}
 	>
 		{view}

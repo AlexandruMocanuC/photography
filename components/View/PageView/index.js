@@ -8,7 +8,10 @@ import $, { css } from "./style.css";
 export default ({ data, view, constants, colors }) => (
 	<b className={$.container}>
 		View is {view}
-		<Header heading={data.heading} description={data.description} />
+		<Header
+			heading={data.heading || null}
+			description={data.description || null}
+		/>
 		{view == "error" ? (
 			<b className={$.gallery}>page not found</b>
 		) : view == "contact" ? (
