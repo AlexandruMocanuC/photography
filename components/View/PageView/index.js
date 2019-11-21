@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "~/components/Header";
-import Bubble from "~/components/Bubble";
 import Gradient from "~/components/Gradient";
 
 import $, { css } from "./style.css";
