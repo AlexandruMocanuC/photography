@@ -84,6 +84,13 @@
 	flex-direction: column-reverse;
 }
 
+.container_3_RzI {
+	font-family: "Montserrat", sans-serif;
+	background: #fffaf0;
+	overflow: hidden;
+}
+
+
 .container_1S-Np {
 	position: relative;
 	height: 100%;
@@ -111,12 +118,6 @@
 }
 
 .menu_3jgVk.is_opened_XWamK {
-}
-
-.container_3_RzI {
-	font-family: "Montserrat", sans-serif;
-	background: #fffaf0;
-	overflow: hidden;
 }
 
 .application_38BIA {
@@ -179,6 +180,3 @@
 	padding: 1vh;
 }
 
-
-
-/*# sourceMappingURL=styles.chunk.css.map*/
