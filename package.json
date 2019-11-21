@@ -7,8 +7,8 @@
 		"dev": "next",
 		"start": "next start",
 		"build": "next build",
-		"export": "yarn clearcache && next build && next export -o public && touch public/.nojekyll",
-		"deploy": "git subtree push --prefix public origin gh-pages",
+		"export": "yarn clearcache && next build && next export -o docs && touch docs/.nojekyll",
+		"deploy": "git subtree push --prefix docs origin gh-pages",
 		"clearcache": "rm -rf node_modules/.cache"
 	},
 	"dependencies": {

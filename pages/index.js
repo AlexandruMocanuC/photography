@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
+import { isMobile } from "react-device-detect";
 import Head from "next/head";
+import reducer from "~/reducer.js";
 
-import { BASE } from "~/playground";
+import MobileApp from "./home/MobileApp";
+import App from "./home/App";
 
-import Home from "./home";
 import $ from "./style.css";
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * Math.floor(max));
+}
+
+export const State = React.createContext(null);
+export const Dispatch = React.createContext(null);
 
 export default () => {
 	const [data, setData] = useState(null);
 
 	useEffect(() => {
-		fetch(`${BASE}/data.json`, {})
+		fetch(`data.json`, {})
 			.then(reply => {
 				reply.json().then(selected => {
 					setData(selected);
@@ -34,5 +43,35 @@ export default () => {
 			</Head>
 			<Home data={data} />
 		</b>
+	);
+};
+
+const Home = ({ data = {} }) => {
+	const initialState = {
+		logo: data.logo,
+		nav: data.menu,
+		view: data.view,
+		isMenuOpened: false,
+		constants: data.constants,
+		colors:
+			data.constants.colors[getRandomInt(data.constants.colors.length)],
+	};
+
+	const [state, dispatch] = useReducer(reducer, initialState);
+
+	return (
+		<Dispatch.Provider value={dispatch}>
+			<State.Provider value={state}>
+				{isMobile ? (
+					<MobileApp data={data} />
+				) : (
+					<App
+						data={data}
+						isMenuOpened={state.isMenuOpened}
+						colors={state.colors}
+					/>
+				)}
+			</State.Provider>
+		</Dispatch.Provider>
 	);
 };

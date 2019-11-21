@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { State, Dispatch } from "~/pages/home";
+import { State, Dispatch } from "~/pages";
 import Logo from "~/components/Logo";
 import Menu from "~/components/Menu";
 import PageView from "./PageView";
