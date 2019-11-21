@@ -135,10 +135,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./components/Menu/MenuItem/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _playground__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/playground */ "./playground.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./components/Menu/MenuItem/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/elena/projects/amc/components/Menu/MenuItem/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -148,32 +153,18 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       isSelected = _ref.isSelected,
       _ref$onSelect = _ref.onSelect,
       onSelect = _ref$onSelect === void 0 ? function () {} : _ref$onSelect;
-  return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
-    as: "".concat(view == "home" ? "" : view),
-    replace: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: this
-  }, __jsx("b", {
-    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_2___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_2___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_2___default.a.sub_menu : ""),
+  return __jsx("b", {
+    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_4___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.sub_menu : ""),
     onClick: function onClick() {
-      return onSelect(view);
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("".concat(_playground__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/"), "".concat(_playground__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/").concat(view == "home" ? "" : view));
+      onSelect(view);
     },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     },
     __self: this
-  }, view)));
+  }, view);
 });
 
 /***/ }),
@@ -402,30 +393,51 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       view = _ref.view,
       constants = _ref.constants,
       colors = _ref.colors;
-  console.log(data, view);
   return __jsx("b", {
     className: _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.container,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, "View is ", view, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    heading: data.heading,
+    description: data.description,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
     },
     __self: this
-  }, __jsx(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    heading: data.heading,
-    description: data.description,
+  }), view == "error" ? __jsx("b", {
+    className: _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.gallery,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: this
-  }), view == "home" ? colors.gradients.map(function (gradient, key) {
+  }, "page not found") : view == "contact" ? __jsx(_views_contact__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    data: data,
+    email: constants.email,
+    phone: constants.phone,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }) : view == "gallery" ? __jsx("b", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, "gallery view") : colors.gradients.map(function (gradient, key) {
     return __jsx(_components_Gradient__WEBPACK_IMPORTED_MODULE_2__["default"], {
       key: key,
       first: colors.palette[gradient.first],
       last: colors.palette[gradient.last],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 24
       },
       __self: this
     }, __jsx("b", {
@@ -436,27 +448,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 29
       },
       __self: this
     }, "testing"));
-  }) : view == "contact" ? __jsx(_views_contact__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    data: data,
-    email: constants.email,
-    phone: constants.phone,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }) : __jsx("b", {
-    className: _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.gallery,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: this
-  }, "gallery"));
+  }));
 });
 
 /***/ }),
@@ -522,7 +518,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
       colors = state.colors;
   var currentViewData = view == "home" ? _objectSpread({}, data.home, {
     categories: data.categories
-  }) : view == "contact" ? _objectSpread({}, data.contact) : data.categories[view];
+  }) : _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(data.categories).indexOf(view) > -1 ? data.categories[view] : _objectSpread({}, data[view]) || _objectSpread({}, data.home, {
+    categories: data.categories
+  });
+  var currentView = data[view] ? view : _babel_runtime_corejs2_core_js_object_keys__WEBPACK_IMPORTED_MODULE_5___default()(data.categories).indexOf(view) > -1 ? "gallery" : "error";
   var styleIn = {
     opacity: 0.5,
     transform: "translateX(-100%)",
@@ -542,7 +541,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     className: _style_css__WEBPACK_IMPORTED_MODULE_12___default.a.container,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 52
     },
     __self: this
   }, __jsx("b", {
@@ -550,7 +549,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     style: isMenuOpened ? styleIn : styleOut,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 53
     },
     __self: this
   }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -563,17 +562,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 54
     },
     __self: this
   }), __jsx(_PageView__WEBPACK_IMPORTED_MODULE_11__["default"], {
     data: currentViewData,
-    view: view,
+    view: currentView,
     constants: constants,
     colors: colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 63
     },
     __self: this
   })), __jsx("b", {
@@ -588,7 +587,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 70
     },
     __self: this
   }), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -604,7 +603,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 79
     },
     __self: this
   }));
@@ -5230,7 +5229,7 @@ function Application() {
     })["catch"](function (reply) {
       console.log("HTTP Error", reply);
     });
-  }, [Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])().asPath.slice(1)]);
+  }, [Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])().asPath]);
   return !data ? null : __jsx("b", {
     className: _style_css__WEBPACK_IMPORTED_MODULE_7___default.a.application,
     __source: {
@@ -5281,6 +5280,16 @@ var Home = function Home(_ref) {
     constants: data.constants,
     colors: data.constants.colors[getRandomInt(data.constants.colors.length)]
   };
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var handleRouteChange = function handleRouteChange(url) {
+      initialState.view = url.slice(1) || "home";
+    };
+
+    next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.on("routeChangeStart", handleRouteChange);
+    return function () {
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducer_js__WEBPACK_IMPORTED_MODULE_4__["default"], initialState),
       state = _useReducer[0],
@@ -5290,14 +5299,14 @@ var Home = function Home(_ref) {
     value: dispatch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 76
     },
     __self: this
   }, __jsx(State.Provider, {
     value: state,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 77
     },
     __self: this
   }, react_device_detect__WEBPACK_IMPORTED_MODULE_1__["isMobile"] ? __jsx(_views_home_MobileApp__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -5306,7 +5315,7 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 79
     },
     __self: this
   }) : __jsx(_views_home_App__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -5315,11 +5324,34 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 85
     },
     __self: this
   })));
 };
+
+/***/ }),
+
+/***/ "./playground.js":
+/*!***********************!*\
+  !*** ./playground.js ***!
+  \***********************/
+/*! exports provided: BASE, URL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE", function() { return BASE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/config */ "./node_modules/next/dist/next-server/lib/runtime-config.js");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_0___default()(),
+    publicRuntimeConfig = _getConfig.publicRuntimeConfig;
+
+var BASE = publicRuntimeConfig.base;
+var URL = publicRuntimeConfig.url;
 
 /***/ }),
 
