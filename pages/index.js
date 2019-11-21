@@ -52,16 +52,20 @@ const Home = ({ data = {} }) => {
 	const initialState = {
 		logo: data.logo,
 		nav: data.menu,
-		view: useRouter().asPath.slice(1) || "home",
+		view:
+			useRouter().asPath.slice(useRouter().asPath.lastIndexOf("/") + 1) ||
+			"home",
 		isMenuOpened: false,
 		constants: data.constants,
 		colors:
 			data.constants.colors[getRandomInt(data.constants.colors.length)],
 	};
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
 		const handleRouteChange = url => {
-			initialState.view = url.slice(1) || "home";
+			initialState.view = url.slice(url.lastIndexOf("/") + 1) || "home";
+			dispatch({ type: "selectView", view: initialState.view });
 		};
 
 		Router.events.on("routeChangeStart", handleRouteChange);
@@ -69,8 +73,6 @@ const Home = ({ data = {} }) => {
 			Router.events.off("routeChangeStart", handleRouteChange);
 		};
 	}, []);
-
-	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
 		<Dispatch.Provider value={dispatch}>
