@@ -3,6 +3,7 @@ import { isMobile } from "react-device-detect";
 import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import reducer from "~/reducer.js";
+import { BASE } from "~/playground.js";
 
 import MobileApp from "~/views/home/MobileApp";
 import App from "~/views/home/App";
@@ -20,7 +21,7 @@ export default function Application() {
 	const [data, setData] = useState(null);
 
 	useEffect(() => {
-		fetch(`data.json`, {})
+		fetch(`${BASE}/data.json`, {})
 			.then(reply => {
 				reply.json().then(selected => {
 					setData(selected);
@@ -53,8 +54,9 @@ const Home = ({ data = {} }) => {
 		logo: data.logo,
 		nav: data.menu,
 		view:
-			useRouter().asPath.slice(useRouter().asPath.lastIndexOf("/") + 1) ||
-			"home",
+			useRouter().asPath.slice(
+				useRouter().asPath.indexOf(BASE) + BASE.length + 1
+			) || "home",
 		isMenuOpened: false,
 		constants: data.constants,
 		colors:
@@ -64,8 +66,10 @@ const Home = ({ data = {} }) => {
 
 	useEffect(() => {
 		const handleRouteChange = url => {
-			initialState.view = url.slice(url.lastIndexOf("/") + 1) || "home";
-			dispatch({ type: "selectView", view: initialState.view });
+			dispatch({
+				type: "selectView",
+				view: url.slice(url.indexOf(BASE) + BASE.length + 1) || "home",
+			});
 		};
 
 		Router.events.on("routeChangeStart", handleRouteChange);
