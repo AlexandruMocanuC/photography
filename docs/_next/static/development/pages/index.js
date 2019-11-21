@@ -5135,7 +5135,8 @@ function withOrientationChange(WrappedComponent) {
         value: function render() {
           return React__default.createElement(WrappedComponent, {
             isLandscape: this.state.isLandscape,
-            isPortrait: this.state.isPortrait
+            isPortrait: this.state.isPortrait,
+            ...this.props
           });
         }
       }]);
@@ -7375,14 +7376,21 @@ var MobileApp = function MobileApp(_ref) {
   var data = _ref.data,
       isLandscape = _ref.isLandscape,
       isPortrait = _ref.isPortrait;
-  return !data ? null : __jsx(_components_View__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return !data ? null : __jsx("b", {
+    className: _style_css__WEBPACK_IMPORTED_MODULE_3___default.a.container,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, __jsx(_components_View__WEBPACK_IMPORTED_MODULE_2__["default"], {
     data: data,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 10
     },
     __self: this
-  });
+  }));
 };
 
 MobileApp = Object(react_device_detect__WEBPACK_IMPORTED_MODULE_1__["withOrientationChange"])(MobileApp);
@@ -7513,6 +7521,8 @@ var Home = function Home(_ref) {
     __self: this
   }, react_device_detect__WEBPACK_IMPORTED_MODULE_1__["isMobile"] ? __jsx(_home_MobileApp__WEBPACK_IMPORTED_MODULE_4__["default"], {
     data: data,
+    isMenuOpened: state.isMenuOpened,
+    colors: state.colors,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 66
@@ -7524,7 +7534,7 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 72
     },
     __self: this
   })));
