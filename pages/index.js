@@ -63,7 +63,11 @@ const Home = ({ data = {} }) => {
 		<Dispatch.Provider value={dispatch}>
 			<State.Provider value={state}>
 				{isMobile ? (
-					<MobileApp data={data} />
+					<MobileApp
+						data={data}
+						isMenuOpened={state.isMenuOpened}
+						colors={state.colors}
+					/>
 				) : (
 					<App
 						data={data}
