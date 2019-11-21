@@ -137,10 +137,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./components/Menu/MenuItem/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _playground_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/playground.js */ "./playground.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./components/Menu/MenuItem/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/elena/projects/amc/components/Menu/MenuItem/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -152,14 +154,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       _ref$onSelect = _ref.onSelect,
       onSelect = _ref$onSelect === void 0 ? function () {} : _ref$onSelect;
   return __jsx("b", {
-    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_3___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_3___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_3___default.a.sub_menu : ""),
+    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_4___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.sub_menu : ""),
     onClick: function onClick() {
-      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("/", "/".concat(view == "home" ? "" : view));
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/"), "".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/").concat(view == "home" ? "" : view));
       onSelect(view);
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: this
   }, view);
@@ -7654,6 +7656,36 @@ exports.getRouteRegex = getRouteRegex;
 
 /***/ }),
 
+/***/ "./node_modules/next/dist/next-server/lib/runtime-config.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/next/dist/next-server/lib/runtime-config.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+
+_Object$defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var runtimeConfig;
+
+exports["default"] = function () {
+  return runtimeConfig;
+};
+
+function setConfig(configValue) {
+  runtimeConfig = configValue;
+}
+
+exports.setConfig = setConfig;
+
+/***/ }),
+
 /***/ "./node_modules/next/dist/next-server/lib/side-effect.js":
 /*!***************************************************************!*\
   !*** ./node_modules/next/dist/next-server/lib/side-effect.js ***!
@@ -14481,14 +14513,23 @@ var Home = function Home(_ref) {
   var initialState = {
     logo: data.logo,
     nav: data.menu,
-    view: Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])().asPath.slice(1) || "home",
+    view: Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])().asPath.slice(Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])().asPath.lastIndexOf("/") + 1) || "home",
     isMenuOpened: false,
     constants: data.constants,
     colors: data.constants.colors[getRandomInt(data.constants.colors.length)]
   };
+
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducer_js__WEBPACK_IMPORTED_MODULE_4__["default"], initialState),
+      state = _useReducer[0],
+      dispatch = _useReducer[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var handleRouteChange = function handleRouteChange(url) {
-      initialState.view = url.slice(1) || "home";
+      initialState.view = url.slice(url.lastIndexOf("/") + 1) || "home";
+      dispatch({
+        type: "selectView",
+        view: initialState.view
+      });
     };
 
     next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.on("routeChangeStart", handleRouteChange);
@@ -14496,23 +14537,18 @@ var Home = function Home(_ref) {
       next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
-
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(_reducer_js__WEBPACK_IMPORTED_MODULE_4__["default"], initialState),
-      state = _useReducer[0],
-      dispatch = _useReducer[1];
-
   return __jsx(Dispatch.Provider, {
     value: dispatch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 78
     },
     __self: this
   }, __jsx(State.Provider, {
     value: state,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 79
     },
     __self: this
   }, react_device_detect__WEBPACK_IMPORTED_MODULE_1__["isMobile"] ? __jsx(_views_home_MobileApp__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -14521,7 +14557,7 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 81
     },
     __self: this
   }) : __jsx(_views_home_App__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -14530,11 +14566,34 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 87
     },
     __self: this
   })));
 };
+
+/***/ }),
+
+/***/ "./playground.js":
+/*!***********************!*\
+  !*** ./playground.js ***!
+  \***********************/
+/*! exports provided: BASE, URL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE", function() { return BASE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/config */ "./node_modules/next/dist/next-server/lib/runtime-config.js");
+/* harmony import */ var next_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_config__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_0___default()(),
+    publicRuntimeConfig = _getConfig.publicRuntimeConfig;
+
+var BASE = publicRuntimeConfig.base;
+var URL = publicRuntimeConfig.url;
 
 /***/ }),
 
