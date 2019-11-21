@@ -77,12 +77,9 @@
 	padding: 4rem 2rem;
 }
 
-.container_2D5q5 {
-	padding: 1rem 0.5rem;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column-reverse;
+.container_1ddYM {
 }
+
 
 .container_1S-Np {
 	position: relative;
@@ -115,14 +112,14 @@
 .menu_3jgVk.is_opened_XWamK {
 }
 
-.container_3_RzI {
+.container_1Hat2 {
 	font-family: "Montserrat", sans-serif;
 	background: #fffaf0;
 	overflow: hidden;
 	height: 100vh;
 }
 
-.application_38BIA {
+.application_1X01B {
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
@@ -133,7 +130,7 @@
 	background: #fffaf0;
 }
 
-.application_38BIA:before {
+.application_1X01B:before {
 	content: "";
 	background: #000;
 	position: absolute;
@@ -147,11 +144,11 @@
 	transition-timing-function: ease-in-out;
 }
 
-.application_38BIA.opened_menu_3NOml:before {
+.application_1X01B.opened_menu_aOwHj:before {
 	opacity: 1;
 }
 
-.wrapper_1uZe_ {
+.wrapper_1KyBe {
 	background-size: auto 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -165,11 +162,11 @@
 	right: 0;
 	filter: drop-shadow(2px 4px 6px #000);
 }
-.opened_menu_3NOml .wrapper_1uZe_ {
+.opened_menu_aOwHj .wrapper_1KyBe {
 	filter: drop-shadow(2px 4px 6px #fff);
 }
 
-.container_NLpo6 {
+.container_3COXJ {
 	width: auto;
 	height: calc(100% - 10vh);
 	background: #fffaf0;
