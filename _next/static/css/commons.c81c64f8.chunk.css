@@ -88,12 +88,15 @@
 	font-family: "Montserrat", sans-serif;
 	background: #fffaf0;
 	overflow: hidden;
+	height: 100vh;
 }
 
 
 .container_1S-Np {
 	position: relative;
 	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .content_3uEG3 {

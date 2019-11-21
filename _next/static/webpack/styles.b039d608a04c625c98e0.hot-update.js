@@ -1,13 +1,14 @@
 webpackHotUpdate("styles",{
 
-/***/ "./pages/style.css":
-/*!*************************!*\
-  !*** ./pages/style.css ***!
-  \*************************/
+/***/ "./pages/home/MobileApp/style.css":
+/*!****************************************!*\
+  !*** ./pages/home/MobileApp/style.css ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin;
+// extracted by mini-css-extract-plugin
+module.exports = {"container":"container_3_RzI"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -29,7 +30,7 @@ webpackHotUpdate("styles",{
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1574337875133");
+            injectCss(link, link.href.split("?")[0] + "?unix=1574338466290");
           });
       }
     }
@@ -38,4 +39,4 @@ webpackHotUpdate("styles",{
 /***/ })
 
 })
-//# sourceMappingURL=styles.7b80625bfe7b025d55c5.hot-update.js.map
+//# sourceMappingURL=styles.b039d608a04c625c98e0.hot-update.js.map

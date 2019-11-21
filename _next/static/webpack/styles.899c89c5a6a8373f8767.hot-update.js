@@ -1,14 +1,14 @@
 webpackHotUpdate("styles",{
 
-/***/ "./pages/style.css":
-/*!*************************!*\
-  !*** ./pages/style.css ***!
-  \*************************/
+/***/ "./components/View/style.css":
+/*!***********************************!*\
+  !*** ./components/View/style.css ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"application":"application_2w-7Z"};;
+module.exports = {"container":"container_1S-Np","content":"content_3uEG3","menu":"menu_3jgVk","is_opened":"is_opened_XWamK"};;
     if (true) {
       var injectCss = function injectCss(prev, href) {
         var link = prev.cloneNode();
@@ -30,7 +30,7 @@ module.exports = {"application":"application_2w-7Z"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1574337573552");
+            injectCss(link, link.href.split("?")[0] + "?unix=1574338486363");
           });
       }
     }
@@ -39,4 +39,4 @@ module.exports = {"application":"application_2w-7Z"};;
 /***/ })
 
 })
-//# sourceMappingURL=styles.d115aab6ad5a9878c192.hot-update.js.map
+//# sourceMappingURL=styles.899c89c5a6a8373f8767.hot-update.js.map
