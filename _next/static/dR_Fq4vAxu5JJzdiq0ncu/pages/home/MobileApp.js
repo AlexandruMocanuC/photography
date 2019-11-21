@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{wIma:function(w,n,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/home/MobileApp",function(){return o("SsN1")}])}},[["wIma",0,1]]]);
