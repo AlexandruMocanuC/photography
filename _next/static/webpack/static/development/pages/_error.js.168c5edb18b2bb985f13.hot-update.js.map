@@ -1,0 +1,1 @@
+{"version":3,"file":"static/webpack/static/development/pages/_error.js.168c5edb18b2bb985f13.hot-update.js","sources":["webpack:///./pages/_error.js"],"sourcesContent":["import Application from \"~/pages\";\n\nexport default <Application isRedirect />;\n"],"mappings":";;;;;;;;;;;;;;;;;AAAA;AAEA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;;;A","sourceRoot":""}

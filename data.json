@@ -338,39 +338,19 @@
 		{ "name": "random", "submenu": false },
 		{ "name": "contact", "submenu": false }
 	],
-	"view": "home",
 	"home": {
 		"heading": "Something",
 		"description": "Just a short description about you if needed. Could be longer, but also could be missed",
 		"categories": true,
 		"background": "home-background.jpg"
 	},
-	"categories": [
-		{
-			"name": "events",
-			"color": "teal",
-			"background": "home-background.jpg",
-			"photos": ["events/poza.png", "events/screen.png"]
-		},
-		{
-			"name": "random",
-			"color": "red",
-			"background": "home-background.jpg",
-			"photos": []
-		},
-		{
-			"name": "couples",
-			"color": "yellow",
-			"background": "home-background.jpg",
-			"photos": []
-		},
-		{
-			"name": "family",
-			"color": "purple",
-			"background": "home-background.jpg",
-			"photos": []
-		}
-	],
+	"categories": {
+		"events": ["events/poza.png", "events/screen.png"],
+		"random": [],
+		"couples": [],
+		"family": []
+	},
+	"services": { "heading": "test" },
 	"contact": {
 		"heading": "Get in touch",
 		"description": "Just say something nice or funny",
