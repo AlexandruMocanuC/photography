@@ -30,7 +30,7 @@ module.exports = {"container":"container_1S-Np","content":"content_3uEG3","menu"
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1574337649105");
+            injectCss(link, link.href.split("?")[0] + "?unix=1574338620729");
           });
       }
     }
@@ -39,4 +39,4 @@ module.exports = {"container":"container_1S-Np","content":"content_3uEG3","menu"
 /***/ })
 
 })
-//# sourceMappingURL=styles.6ba39d4351f6247f0b97.hot-update.js.map
+//# sourceMappingURL=styles.5f393751808efb61e7f1.hot-update.js.map

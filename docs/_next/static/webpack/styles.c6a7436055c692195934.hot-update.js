@@ -30,7 +30,7 @@ module.exports = {"container":"container_3_RzI"};;
           .querySelectorAll("link[href][rel=stylesheet]")
           .forEach(function(link) {
             if (!link.href.match(prefix) || link.stale) return;
-            injectCss(link, link.href.split("?")[0] + "?unix=1574337760171");
+            injectCss(link, link.href.split("?")[0] + "?unix=1574338461870");
           });
       }
     }
@@ -39,4 +39,4 @@ module.exports = {"container":"container_3_RzI"};;
 /***/ })
 
 })
-//# sourceMappingURL=styles.5c23cd06a6f5e5773b55.hot-update.js.map
+//# sourceMappingURL=styles.c6a7436055c692195934.hot-update.js.map
