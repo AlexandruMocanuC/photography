@@ -14,10 +14,19 @@ export default ({ data }) => {
 
 	const currentViewData =
 		view == "home"
-			? { ...data.home, categories: data.categories.slice() }
-			: view == "contact"
-			? { ...data.contact }
-			: data.categories.find(category => category.name == view);
+			? { ...data.home, categories: data.categories }
+			: Object.keys(data.categories).indexOf(view) > -1
+			? data.categories[view]
+			: { ...data[view] } || {
+					...data.home,
+					categories: data.categories,
+			  };
+
+	const currentView = data[view]
+		? view
+		: Object.keys(data.categories).indexOf(view) > -1
+		? "gallery"
+		: "error";
 
 	const styleIn = {
 		opacity: 0.5,
@@ -53,7 +62,7 @@ export default ({ data }) => {
 				/>
 				<PageView
 					data={currentViewData}
-					view={view}
+					view={currentView}
 					constants={constants}
 					colors={colors}
 				/>

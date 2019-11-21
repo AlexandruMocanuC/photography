@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { isMobile } from "react-device-detect";
+import Router, { useRouter } from "next/router";
 import Head from "next/head";
 import reducer from "~/reducer.js";
 
-import MobileApp from "./home/MobileApp";
-import App from "./home/App";
+import MobileApp from "~/views/home/MobileApp";
+import App from "~/views/home/App";
 
 import $ from "./style.css";
 
@@ -15,7 +16,7 @@ function getRandomInt(max) {
 export const State = React.createContext(null);
 export const Dispatch = React.createContext(null);
 
-export default () => {
+export default function Application() {
 	const [data, setData] = useState(null);
 
 	useEffect(() => {
@@ -28,7 +29,8 @@ export default () => {
 			.catch(reply => {
 				console.log("HTTP Error", reply);
 			});
-	}, []);
+	}, [useRouter().asPath]);
+
 	return !data ? null : (
 		<b className={$.application}>
 			<Head>
@@ -44,18 +46,29 @@ export default () => {
 			<Home data={data} />
 		</b>
 	);
-};
+}
 
 const Home = ({ data = {} }) => {
 	const initialState = {
 		logo: data.logo,
 		nav: data.menu,
-		view: data.view,
+		view: useRouter().asPath.slice(1) || "home",
 		isMenuOpened: false,
 		constants: data.constants,
 		colors:
 			data.constants.colors[getRandomInt(data.constants.colors.length)],
 	};
+
+	useEffect(() => {
+		const handleRouteChange = url => {
+			initialState.view = url.slice(1) || "home";
+		};
+
+		Router.events.on("routeChangeStart", handleRouteChange);
+		return () => {
+			Router.events.off("routeChangeStart", handleRouteChange);
+		};
+	}, []);
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 

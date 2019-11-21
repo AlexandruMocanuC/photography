@@ -1,12 +1,25 @@
 import React from "react";
 import Header from "~/components/Header";
 import Gradient from "~/components/Gradient";
+import Contact from "~/views/contact";
 
 import $, { css } from "./style.css";
 
 export default ({ data, view, constants, colors }) => (
 	<b className={$.container}>
-		{view == "home" ? (
+		View is {view}
+		<Header heading={data.heading} description={data.description} />
+		{view == "error" ? (
+			<b className={$.gallery}>page not found</b>
+		) : view == "contact" ? (
+			<Contact
+				data={data}
+				email={constants.email}
+				phone={constants.phone}
+			/>
+		) : view == "gallery" ? (
+			<b>gallery view</b>
+		) : (
 			colors.gradients.map((gradient, key) => (
 				<Gradient
 					key={key}
@@ -24,17 +37,6 @@ export default ({ data, view, constants, colors }) => (
 					</b>
 				</Gradient>
 			))
-		) : view == "contact" ? (
-			<b className={$.contact}>
-				{email ? (
-					<a href={`mailto:${constants.email}`}>{constants.email}</a>
-				) : null}
-				{phone ? (
-					<a href={`tel:${constants.phone}`}>{constants.phone}</a>
-				) : null}
-			</b>
-		) : (
-			<b className={$.gallery}>gallery</b>
 		)}
 	</b>
 );
