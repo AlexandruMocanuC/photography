@@ -5,16 +5,18 @@ import { BASE } from "~/playground.js";
 import $, { css } from "./style.css";
 
 export default ({ isSubItem, view, isSelected, onSelect = () => {} }) => (
-	<b
-		className={`${$.item} ${isSelected ? $.is_selected : ""} ${
-			isSubItem ? $.sub_menu : ""
-		}`}
-		onClick={() => {
-			Router.push(`${BASE}/`, `${BASE}/${view == "home" ? "" : view}`, {
-				shallow: true,
-			});
-		}}
+	<Link
+		href={`${BASE}/?view=${view == "home" ? "" : view}`}
+		as={`${BASE}/${view == "home" ? "" : view}`}
 	>
-		{view}
-	</b>
+		<a>
+			<b
+				className={`${$.item} ${isSelected ? $.is_selected : ""} ${
+					isSubItem ? $.sub_menu : ""
+				}`}
+			>
+				{view}
+			</b>
+		</a>
+	</Link>
 );

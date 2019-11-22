@@ -50,6 +50,7 @@ export default function Application() {
 }
 
 const Home = ({ data = {} }) => {
+	console.log(useRouter());
 	const initialState = {
 		logo: data.logo,
 		nav: data.menu,
