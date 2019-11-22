@@ -153,28 +153,20 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       isSelected = _ref.isSelected,
       _ref$onSelect = _ref.onSelect,
       onSelect = _ref$onSelect === void 0 ? function () {} : _ref$onSelect;
-  return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/?view=").concat(view == "home" ? "" : view),
-    as: "".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/").concat(view == "home" ? "" : view),
+  return __jsx("b", {
+    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_4___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.sub_menu : ""),
+    onClick: function onClick() {
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push("".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/"), "".concat(_playground_js__WEBPACK_IMPORTED_MODULE_3__["BASE"], "/").concat(view == "home" ? "" : view), {
+        shallow: true
+      });
+      onSelect(view);
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     },
     __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, __jsx("b", {
-    className: "".concat(_style_css__WEBPACK_IMPORTED_MODULE_4___default.a.item, " ").concat(isSelected ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.is_selected : "", " ").concat(isSubItem ? _style_css__WEBPACK_IMPORTED_MODULE_4___default.a.sub_menu : ""),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  }, view)));
+  }, view);
 });
 
 /***/ }),
@@ -14522,7 +14514,6 @@ function Application() {
 var Home = function Home(_ref) {
   var _ref$data = _ref.data,
       data = _ref$data === void 0 ? {} : _ref$data;
-  console.log(Object(next_router__WEBPACK_IMPORTED_MODULE_2__["useRouter"])());
   var initialState = {
     logo: data.logo,
     nav: data.menu,
@@ -14544,23 +14535,23 @@ var Home = function Home(_ref) {
       });
     };
 
-    next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.on("routeChangeStart", handleRouteChange);
+    next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.on("beforeHistoryChange", handleRouteChange);
     return function () {
-      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.off("routeChangeStart", handleRouteChange);
+      next_router__WEBPACK_IMPORTED_MODULE_2___default.a.events.off("beforeHistoryChange", handleRouteChange);
     };
   }, []);
   return __jsx(Dispatch.Provider, {
     value: dispatch,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 82
     },
     __self: this
   }, __jsx(State.Provider, {
     value: state,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 83
     },
     __self: this
   }, react_device_detect__WEBPACK_IMPORTED_MODULE_1__["isMobile"] ? __jsx(_views_home_MobileApp__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -14569,7 +14560,7 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 85
     },
     __self: this
   }) : __jsx(_views_home_App__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -14578,7 +14569,7 @@ var Home = function Home(_ref) {
     colors: state.colors,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 91
     },
     __self: this
   })));
