@@ -50,7 +50,6 @@ export default function Application() {
 }
 
 const Home = ({ data = {} }) => {
-	console.log(useRouter());
 	const initialState = {
 		logo: data.logo,
 		nav: data.menu,
@@ -73,9 +72,9 @@ const Home = ({ data = {} }) => {
 			});
 		};
 
-		Router.events.on("routeChangeStart", handleRouteChange);
+		Router.events.on("beforeHistoryChange", handleRouteChange);
 		return () => {
-			Router.events.off("routeChangeStart", handleRouteChange);
+			Router.events.off("beforeHistoryChange", handleRouteChange);
 		};
 	}, []);
 
