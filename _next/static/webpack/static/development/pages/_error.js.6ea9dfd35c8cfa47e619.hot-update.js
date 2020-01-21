@@ -57,4 +57,4 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F_error
 /***/ })
 
 })
-//# sourceMappingURL=_error.js.2437ea93f910387d7a8c.hot-update.js.map
+//# sourceMappingURL=_error.js.6ea9dfd35c8cfa47e619.hot-update.js.map
