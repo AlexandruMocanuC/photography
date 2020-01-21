@@ -1,5 +1,4 @@
 const withCSS = require("@zeit/next-css");
-const withPWA = require("next-pwa");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -37,7 +36,7 @@ const cssModules = {
 	},
 };
 
-module.exports = withPWA(withCSS({
+module.exports = withCSS({
 	...cssModules,
 	...config,
-}));
+});
