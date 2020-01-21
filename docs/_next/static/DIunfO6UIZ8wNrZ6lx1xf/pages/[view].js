@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{"6fKQ":function(n,e,o){"use strict";o.r(e);var t=o("q1tI"),u=o.n(t),i=o("RNiq"),w=u.a.createElement;e.default=function(){return console.log("fshk"),w(i.default,null)}},EJLO:function(n,e,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/[view]",function(){return o("6fKQ")}])}},[["EJLO",0,1]]]);
