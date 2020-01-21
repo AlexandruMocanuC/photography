@@ -1,10 +1,13 @@
 const withCSS = require("@zeit/next-css");
+const withPWA = require("next-pwa");
+
 const isProduction = process.env.NODE_ENV === "production";
 
 const repository = "photography";
-const publicURL = isProduction
-	? `https://AlexandruMocanuC.github.io/${repository}`
-	: "";
+// const publicURL = isProduction
+// 	? `https://AlexandruMocanuC.github.io/${repository}`
+// 	: "";
+const publicURL = "";
 const base = isProduction ? "/photography" : "";
 
 const routes = {
@@ -34,7 +37,7 @@ const cssModules = {
 	},
 };
 
-module.exports = withCSS({
+module.exports = withPWA(withCSS({
 	...cssModules,
 	...config,
-});
+}));
