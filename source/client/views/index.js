@@ -91,52 +91,51 @@ const View = () => {
 		  ]
 		: null;
 
-	return !globals
-		? null
-		: globals.menu.map(item => (
-				<>
-					{!item.submenu
-						? null
-						: item.submenu.map(subitem => (
-								<Scope
-									exact={!subitem.path}
-									match={`/${
-										subitem.path == "home"
-											? ""
-											: subitem.path
-									}`}
-									render={() => (
-										<Page
-											colors={colors}
-											data={globals}
-											path={subitem.path}
-											name={
-												subitem.name
-													? subitem.name
-													: subitem.path
-											}
-											layout={layouts[subitem.layoutType]}
-										/>
-									)}
-									key={subitem.path}
-								/>
-						  ))}
-
-					<Scope
-						exact={!item.path}
-						match={`/${item.path == "home" ? "" : item.path}`}
-						render={() => (
-							<Page
-								colors={colors}
-								data={globals}
-								name={item.name ? item.name : item.path}
-								layout={layouts[item.layoutType]}
+	return (
+		globals &&
+		globals.menu.map(item => (
+			<>
+				{!item.submenu
+					? null
+					: item.submenu.map(subitem => (
+							<Scope
+								exact={!subitem.path}
+								match={`/${
+									subitem.path == "home" ? "" : subitem.path
+								}`}
+								render={() => (
+									<Page
+										colors={colors}
+										data={globals}
+										path={subitem.path}
+										name={
+											subitem.name
+												? subitem.name
+												: subitem.path
+										}
+										layout={layouts[subitem.layoutType]}
+									/>
+								)}
+								key={subitem.path}
 							/>
-						)}
-						key={item.path}
-					/>
-				</>
-		  ));
+					  ))}
+
+				<Scope
+					exact={!item.path}
+					match={`/${item.path == "home" ? "" : item.path}`}
+					render={() => (
+						<Page
+							colors={colors}
+							data={globals}
+							name={item.name ? item.name : item.path}
+							layout={layouts[item.layoutType]}
+						/>
+					)}
+					key={item.path}
+				/>
+			</>
+		))
+	);
 };
 
 export default <View />;
