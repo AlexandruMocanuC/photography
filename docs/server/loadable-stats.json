@@ -1,0 +1,60 @@
+{
+  "errors": [],
+  "warnings": [
+    "../node_modules/@nore/sqlite/source/Migrations.js 106:9-21\nCritical dependency: the request of a dependency is an expression\n @ ../node_modules/@nore/sqlite/source/index.js\n @ ../nore/packages/plugin-sqlite/source/index.js\n @ ../nore/packages/cms/source/internals/plugins.autoload.eval.js\n @ ../nore/packages/cms/source/internals/plugins.js\n @ ../nore/packages/cms/source/internals/initialize.js\n @ ../nore/packages/cms/source/index.js\n @ ./server/index.js\n @ multi server"
+  ],
+  "version": "4.41.5",
+  "hash": "e6d0c4e46d507adda274",
+  "publicPath": "",
+  "outputPath": "/Users/elena/projects/amc/.nore/server",
+  "assetsByChunkName": {
+    "main": "index.cjs"
+  },
+  "assets": [
+    {
+      "name": "index.cjs",
+      "size": 210140,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "index.cjs"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "index.cjs"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 2,
+      "debug": false
+    }
+  },
+  "children": []
+}
