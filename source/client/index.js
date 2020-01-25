@@ -4,7 +4,8 @@ import { Application, Scope, loadable } from "@nore/pwa";
 import views from "./views";
 
 function render() {
-	const application = <Application>{views}</Application>;
+	const root = IS_DEVELOPMENT ? "/" : "/photography";
+	const application = <Application root={root}>{views}</Application>;
 	const container = document.getElementById("application");
 
 	ReactDOM.render(application, container, () => {
