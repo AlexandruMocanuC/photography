@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import { Application, Scope, loadable } from "@nore/pwa";
 import views from "./views";
 
+const root = IS_DEVELOPMENT ? "/" : "/photography";
+const container = document.getElementById("application");
+
 function render() {
-	const root = IS_DEVELOPMENT ? "/" : "/photography";
 	const application = <Application root={root}>{views}</Application>;
-	const container = document.getElementById("application");
 
 	ReactDOM.render(application, container, () => {
 		container.classList.replace("is_loading", "is_loaded");
