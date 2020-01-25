@@ -326,17 +326,38 @@
 		]
 	},
 	"staticBackground": "static-background.png",
-	"logo": "dropbox_logo.png",
+	"logo": "logo.png",
 	"menu": [
-		{ "name": "home", "submenu": false },
-		{ "name": "services", "submenu": false },
 		{
-			"name": "events",
-			"submenu": ["babyshower", "birthday", "small party"]
+			"path": "",
+			"name": "home",
+			"layoutType": "standard",
+			"submenu": false
 		},
-		{ "name": "photoshoots", "submenu": ["babies", "couples"] },
-		{ "name": "random", "submenu": false },
-		{ "name": "contact", "submenu": false }
+		{ "path": "services", "layoutType": "standard", "submenu": false },
+		{
+			"path": "events",
+			"layoutType": "standard",
+			"submenu": [
+				{ "path": "babyshower", "layoutType": "standard" },
+				{ "path": "birthday", "layoutType": "standard" },
+				{
+					"path": "small-party",
+					"name": "small party",
+					"layoutType": "standard"
+				}
+			]
+		},
+		{
+			"path": "photoshoots",
+			"layoutType": "standard",
+			"submenu": [
+				{ "path": "babies", "layoutType": "standard" },
+				{ "path": "couples", "layoutType": "standard" }
+			]
+		},
+		{ "path": "random", "layoutType": "standard", "submenu": false },
+		{ "path": "contact", "layoutType": "standard", "submenu": false }
 	],
 	"home": {
 		"heading": "Something",

@@ -1,0 +1,15 @@
+url: http://photostudio.nore
+
+aliases:
+  $website: ~/client
+
+client:
+  template:
+    path: client/index.html
+    meta:
+      url: "https://alexandrumocanuc.github.io/photography/"
+      title: "Alex Mocanu - Photo Studio"
+
+# Production #
+
+url: https://alexandrumocanuc.github.io/photography
