@@ -4,9 +4,10 @@ import View from "$website/components/View";
 
 import $, { css } from "./style.css";
 
-let MobileApp = ({ data = null, isLandscape, isPortrait }, children) => {
+let MobileApp = ({ data, isLandscape, isPortrait, children }) => {
+	console.log(children);
 	return children ? (
-		{ children }
+		<>{children}</>
 	) : (
 		<b className={$.container}>
 			<View data={data} />

@@ -1,19 +1,10 @@
-import React, { useState, useEffect, useReducer, createElement } from "react";
-import { isMobile } from "react-device-detect";
-import ReactDOM from "react-dom";
-import { Application, Scope, loadable, http } from "@nore/pwa";
+import React, { useState, useEffect } from "react";
+import { Scope, loadable, http } from "@nore/pwa";
 import { keys } from "@nore/std/object";
 
-import reducer from "$website/reducer.js";
-
-import MobileApp from "./MobileApp";
-
-import $, { css } from "./style.css";
+import Page from "./Page";
 
 const Standard = loadable(() => import("$website/components/View"));
-
-export const State = React.createContext(null);
-export const Dispatch = React.createContext(null);
 
 const layouts = {
 	standard: Standard,
@@ -23,54 +14,45 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
 
-const Page = ({ data, layout, name, colors }) => {
-	const initialState = {
-		logo: data.logo,
-		nav: data.menu,
-		view: name,
-		isMenuOpened: false,
-		constants: data.constants,
-		colors: colors,
-	};
-	const [state, dispatch] = useReducer(reducer, initialState);
+const Scopes = ({ colors, staticBackground, data, firstView }) =>
+	data &&
+	data.menu.map((item, index) => (
+		<React.Fragment key={index}>
+			{!item.submenu
+				? null
+				: item.submenu.map(subitem => (
+						<Scope
+							exact={subitem.path == "home"}
+							match={`/${
+								subitem.path == "home" ? "" : subitem.path
+							}`}
+							render={() => (
+								<Page
+									staticBackground={staticBackground}
+									colors={colors}
+									data={data}
+									layout={layouts[subitem.layoutType]}
+								/>
+							)}
+							key={subitem.path}
+						/>
+				  ))}
 
-	const { isMenuOpened } = state;
-
-	const content = !data ? null : createElement(layout, { data });
-
-	return (
-		<Dispatch.Provider value={dispatch}>
-			<State.Provider value={state}>
-				{isMobile ? (
-					<MobileApp>
-						<b className={$.container_mobile}>{content}</b>
-					</MobileApp>
-				) : (
-					<b
-						className={`${$.application} ${
-							isMenuOpened ? $.opened_menu : ""
-						}`}
-						style={{
-							background: `linear-gradient(122deg, ${colors.palette.filter(
-								color => color + ", "
-							)})`,
-						}}
-					>
-						<b
-							className={$.wrapper}
-							style={{
-								backgroundImage: `url(${data.staticBackground ||
-									null})`,
-							}}
-						>
-							<b className={$.container}>{content}</b>
-						</b>
-					</b>
+			<Scope
+				exact={item.path == "home"}
+				match={`/${item.path == "home" ? "" : item.path}`}
+				render={() => (
+					<Page
+						staticBackground={staticBackground}
+						colors={colors}
+						data={data}
+						layout={layouts[item.layoutType]}
+					/>
 				)}
-			</State.Provider>
-		</Dispatch.Provider>
-	);
-};
+				key={item.path}
+			/>
+		</React.Fragment>
+	));
 
 const View = () => {
 	const [globals, setGlobals] = useState(null);
@@ -91,50 +73,14 @@ const View = () => {
 		  ]
 		: null;
 
-	return (
-		globals &&
-		globals.menu.map(item => (
-			<>
-				{!item.submenu
-					? null
-					: item.submenu.map(subitem => (
-							<Scope
-								exact={!subitem.path}
-								match={`/${
-									subitem.path == "home" ? "" : subitem.path
-								}`}
-								render={() => (
-									<Page
-										colors={colors}
-										data={globals}
-										path={subitem.path}
-										name={
-											subitem.name
-												? subitem.name
-												: subitem.path
-										}
-										layout={layouts[subitem.layoutType]}
-									/>
-								)}
-								key={subitem.path}
-							/>
-					  ))}
+	const staticBackground = globals ? globals.staticBackground : null;
 
-				<Scope
-					exact={!item.path}
-					match={`/${item.path == "home" ? "" : item.path}`}
-					render={() => (
-						<Page
-							colors={colors}
-							data={globals}
-							name={item.name ? item.name : item.path}
-							layout={layouts[item.layoutType]}
-						/>
-					)}
-					key={item.path}
-				/>
-			</>
-		))
+	return (
+		<Scopes
+			colors={colors}
+			data={globals}
+			staticBackground={staticBackground}
+		/>
 	);
 };
 

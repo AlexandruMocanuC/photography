@@ -13,7 +13,7 @@
 		"nore/packages/*"
 	],
 	"dependencies": {
-		"react-device-detect": "1.9.10",
+		"react-device-detect": "1.11.14",
 		"react-spring": "^8.0.27"
 	}
 }

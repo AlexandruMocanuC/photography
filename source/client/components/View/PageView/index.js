@@ -5,7 +5,7 @@ import Contact from "$website/views/contact";
 
 import $, { css } from "./style.css";
 
-export default ({ data, view, constants, colors }) => (
+export default ({ data, view, email, phone, colors, withData }) => (
 	<b className={$.container}>
 		View is {view}
 		<Header
@@ -15,11 +15,7 @@ export default ({ data, view, constants, colors }) => (
 		{view == "error" ? (
 			<b className={$.gallery}>page not found</b>
 		) : view == "contact" ? (
-			<Contact
-				data={data}
-				email={constants.email}
-				phone={constants.phone}
-			/>
+			<Contact data={data} email={email} phone={phone} />
 		) : view == "gallery" ? (
 			<b>gallery view</b>
 		) : (

@@ -24,7 +24,6 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 			delay: delay,
 		});
 	};
-	console.log(selectedView);
 
 	return (
 		<b
@@ -59,7 +58,7 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 							<MenuItem
 								isSelected={view.path == selectedView}
 								view={view}
-								onSelect={view => onSelect(view)}
+								onSelect={onSelect}
 							/>
 
 							{!view.submenu
