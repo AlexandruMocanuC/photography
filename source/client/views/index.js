@@ -10,6 +10,8 @@ const layouts = {
 	standard: Standard,
 };
 
+const project = IS_DEVELOPMENT ? "" : "/photography";
+
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
@@ -23,7 +25,7 @@ const Scopes = ({ colors, staticBackground, data, firstView }) =>
 				: item.submenu.map(subitem => (
 						<Scope
 							exact={subitem.path == "home"}
-							match={`/${
+							match={`${project}/${
 								subitem.path == "home" ? "" : subitem.path
 							}`}
 							render={() => (
@@ -40,7 +42,7 @@ const Scopes = ({ colors, staticBackground, data, firstView }) =>
 
 			<Scope
 				exact={item.path == "home"}
-				match={`/${item.path == "home" ? "" : item.path}`}
+				match={`${project}/${item.path == "home" ? "" : item.path}`}
 				render={() => (
 					<Page
 						staticBackground={staticBackground}
