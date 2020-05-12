@@ -22,12 +22,12 @@ export default function Application() {
 
 	useEffect(() => {
 		fetch(`${BASE}/data.json`, {})
-			.then(reply => {
-				reply.json().then(selected => {
+			.then((reply) => {
+				reply.json().then((selected) => {
 					setData(selected);
 				});
 			})
-			.catch(reply => {
+			.catch((reply) => {
 				console.log("HTTP Error", reply);
 			});
 	}, [useRouter().asPath]);
@@ -64,19 +64,19 @@ const Home = ({ data = {} }) => {
 	};
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	useEffect(() => {
-		const handleRouteChange = url => {
-			dispatch({
-				type: "selectView",
-				view: url.slice(url.indexOf(BASE) + BASE.length + 1) || "home",
-			});
-		};
+	// useEffect(() => {
+	// 	const handleRouteChange = url => {
+	// 		dispatch({
+	// 			type: "selectView",
+	// 			view: url.slice(url.indexOf(BASE) + BASE.length + 1) || "home",
+	// 		});
+	// 	};
 
-		Router.events.on("beforeHistoryChange", handleRouteChange);
-		return () => {
-			Router.events.off("beforeHistoryChange", handleRouteChange);
-		};
-	}, []);
+	// 	Router.events.on("beforeHistoryChange", handleRouteChange);
+	// 	return () => {
+	// 		Router.events.off("beforeHistoryChange", handleRouteChange);
+	// 	};
+	// }, []);
 
 	return (
 		<Dispatch.Provider value={dispatch}>
