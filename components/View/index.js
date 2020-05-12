@@ -53,7 +53,7 @@ export default ({ data }) => {
 			<b className={$.content} style={isMenuOpened ? styleIn : styleOut}>
 				<Logo
 					image={data.logo}
-					onSelect={view =>
+					onSelect={(view) =>
 						dispatch({
 							type: "selectView",
 							view: view,
@@ -81,7 +81,7 @@ export default ({ data }) => {
 				items={nav}
 				colors={menuColors}
 				selectedView={view}
-				onSelect={view =>
+				onSelect={(view) =>
 					dispatch({
 						type: "selectView",
 						view: view,

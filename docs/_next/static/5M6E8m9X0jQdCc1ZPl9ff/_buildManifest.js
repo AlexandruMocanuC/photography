@@ -1,1 +1,0 @@
-self.__BUILD_MANIFEST = (function(a,b,c){return {"/":[a,b,c],"/_error":[a,b,c],"/index":[a,b,c]}}("static\u002Fchunks\u002Facdb94cddf6738c231691bd3f18da10aef720571.9980e07b4cec702f5e70.js","static\u002Fcss\u002Fstyles.1110edfe.chunk.css","static\u002Fchunks\u002Fstyles.e05b9cac0aab3e16d0b1.js"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
