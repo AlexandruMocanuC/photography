@@ -10,9 +10,13 @@ export default ({ isSubItem, view, isSelected, onSelect = () => {} }) => (
 			isSubItem ? $.sub_menu : ""
 		}`}
 		onClick={() => {
-			Router.push(`${BASE}/`, `${BASE}/${view == "home" ? "" : view}`, {
-				shallow: true,
-			});
+			Router.replace(
+				`${BASE}/`,
+				`${BASE}/${view == "home" ? "" : view}`,
+				{
+					shallow: true,
+				}
+			);
 			onSelect(view);
 		}}
 	>
