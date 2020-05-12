@@ -1,35 +1,30 @@
-# OSX specific
-.DS_Store
-
-# specific app settings
-.git
-.rnpm
-.vscode
-*.sublime-project
-*.sublime-workspace
-
-# Logs
-logs
-.logs
+# archive formats
+*.rar
+*.tar
+*.zip
 *.log
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# clutter
+.Spotlight-V100
+.Trashes
+.DS_Store
+*un~
+._*
+tmp
+*.code-workspace
 
-# Dependency directories
-bower_components
+# node specific
 node_modules
-jspm_packages
+.next
+# ignore npm, use yarn
+package-lock*
+yarn.lock
 
-# dotenv environment variable files
-.env*
-
-# nore specific
-.nore
-uploads
-backups
-*.db
-config/nginx*
+# certbot certificates
+ssl
+# log files
+logs
+# sqlite db file
+db
+# remove from repo, generated through scripts
+config/nginx.conf
