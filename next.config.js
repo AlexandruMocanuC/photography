@@ -6,7 +6,6 @@ const repository = "photography";
 const publicURL = isProduction
 	? `https://AlexandruMocanuC.github.io/${repository}`
 	: "";
-// const publicURL = "";
 const base = isProduction ? "/photography" : "";
 
 const routes = {

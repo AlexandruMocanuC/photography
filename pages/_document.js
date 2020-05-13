@@ -21,6 +21,15 @@ export default class MyDocument extends Document {
 						href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
 					/>
 
+					<link
+						href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700|Lato:400"
+						rel="stylesheet"
+					/>
+					<link
+						rel="stylesheet"
+						href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+					/>
+
 					<style>{`
 						html {
 							box-sizing: border-box;

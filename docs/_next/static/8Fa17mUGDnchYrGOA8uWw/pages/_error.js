@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{Y0NT:function(n,o,r){"use strict";r.r(o);var w=r("RNiq");o.default=w.default},k6rB:function(n,o,r){(window.__NEXT_P=window.__NEXT_P||[]).push(["/_error",function(){return r("Y0NT")}])}},[["k6rB",0,2,1,3,4]]]);
