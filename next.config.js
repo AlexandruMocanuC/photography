@@ -19,7 +19,12 @@ const config = {
 		url: publicURL,
 		base: base,
 	},
-	exportPathMap: () => routes,
+	exportPathMap: async function(
+		defaultPathMap,
+		{ dev, dir, outDir, distDir, buildId }
+	) {
+		return routes;
+	},
 	webpack(config, options) {
 		config.resolve.alias["~"] = config.context;
 		config.output.publicPath = isProduction ? `/${repository}` : "/";
