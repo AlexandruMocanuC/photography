@@ -5,15 +5,25 @@ import $, { css } from "./style.css";
 
 export default (props) => {
 	const { isMenuOpened, colors, staticBackground } = props;
+
+	const order = [
+		"primary",
+		"secondary",
+		"accent",
+		"neutral",
+		"complementary",
+	];
+
+	let colorsVar = "";
+	colors.palette.map((color, index) => {
+		colorsVar += `--data_color_${order[index]}: ${color};`;
+	});
+
 	return (
-		<b
-			className={`${$.application} ${isMenuOpened ? $.opened_menu : ""}`}
-			style={{
-				background: `linear-gradient(122deg, ${colors.palette.filter(
-					(color) => color + ", "
-				)})`,
-			}}
-		>
+		<b className={`${$.application} ${isMenuOpened ? $.opened_menu : ""}`}>
+			<style>{`.${$.application} {
+				${colorsVar}
+			}`}</style>
 			<b
 				className={$.wrapper}
 				style={{ backgroundImage: `url(${staticBackground})` }}

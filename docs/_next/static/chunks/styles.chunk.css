@@ -100,7 +100,14 @@
 	background-size: cover;
 	background-position: center;
 	position: relative;
-	background: #fffaf0;
+	background: linear-gradient(
+		122deg,
+		var(--data_color_primary),
+		var(--data_color_secondary),
+		var(--data_color_accent),
+		var(--data_color_neutral),
+		var(--data_color_complementary)
+	);
 }
 
 .application_1ojyx:before {
