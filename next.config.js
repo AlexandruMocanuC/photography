@@ -8,15 +8,10 @@ const publicURL = isProduction
 	: "";
 const base = isProduction ? "/photography" : "";
 
-const routes = isProduction
-	? {
-			"/photography": { page: "/" },
-			"/photography/about": { page: "/about" },
-	  }
-	: {
-			"/": { page: "/" },
-			"/about": { page: "/about" },
-	  };
+const routes = {
+	"/photography": { page: "/" },
+	"/photography/about": { page: "/about" },
+};
 
 const config = {
 	assetPrefix: publicURL,
