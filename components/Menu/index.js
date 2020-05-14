@@ -3,7 +3,7 @@ import { useTrail, animated, config } from "react-spring";
 import MenuItem from "./MenuItem";
 import $ from "./style.css";
 
-export default ({ isOpen, items, selectedView, onSelect, colors }) => {
+export default ({ isOpen, items, selectedView, colors }) => {
 	const menuItemIn = {
 		opacity: 1,
 		x: 0,
@@ -50,7 +50,7 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 								...rest,
 
 								transform: x.interpolate(
-									x => `translate3d(${x}vw,0,0)`
+									(x) => `translate3d(${x}vw,0,0)`
 								),
 								opacity: opacity,
 							}}
@@ -58,7 +58,6 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 							<MenuItem
 								isSelected={view.name == selectedView}
 								view={view.name}
-								onSelect={view => onSelect(view)}
 							/>
 						</animated.div>
 					) : (
@@ -68,7 +67,7 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 								...rest,
 
 								transform: x.interpolate(
-									x => `translate3d(${x}vw,0,0)`
+									(x) => `translate3d(${x}vw,0,0)`
 								),
 								opacity: opacity,
 							}}
@@ -76,7 +75,6 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 							<MenuItem
 								isSelected={view.name == selectedView}
 								view={view.name}
-								onSelect={view => onSelect(view)}
 							/>
 							{trailing(view.submenu, 200 * index).map(
 								({ x, opacity, ...rest }, key) => {
@@ -89,7 +87,7 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 												...rest,
 
 												transform: x.interpolate(
-													x =>
+													(x) =>
 														`translate3d(${x}vw,0,0)`
 												),
 												opacity: opacity,
@@ -101,9 +99,6 @@ export default ({ isOpen, items, selectedView, onSelect, colors }) => {
 													subview == selectedView
 												}
 												view={subview}
-												onSelect={view =>
-													onSelect(view)
-												}
 											/>
 										</animated.div>
 									);

@@ -277,6 +277,7 @@ export default {
 	],
 	menu: [
 		{ name: "home", submenu: false },
+		{ name: "about", submenu: false },
 		{ name: "services", submenu: false },
 		{
 			name: "events",

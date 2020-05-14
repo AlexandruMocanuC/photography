@@ -10,6 +10,4 @@ const initialState = {
 	isMenuOpened: false,
 };
 
-console.log(initialState);
-
 export default initialState;

@@ -10,6 +10,7 @@ const base = isProduction ? "/photography" : "";
 
 const routes = {
 	"/": { page: "/" },
+	"/about": { page: "/about" },
 };
 
 const config = {

@@ -10,13 +10,12 @@ export default () => {
 	const dispatch = useContext(Dispatch);
 	const state = useContext(State);
 
-	console.log(state);
-	const { isMenuOpened, menu, colors } = state;
+	// const { isMenuOpened, menu, colors } = state;
 
-	const menuColors = {
-		primary: colors.palette[colors.menu.primary],
-		accent: colors.palette[colors.menu.accent],
-	};
+	// const menuColors = {
+	// 	primary: colors.palette[colors.menu.primary],
+	// 	accent: colors.palette[colors.menu.accent],
+	// };
 	// useEffect(() => {
 	// 	fetch(`${BASE}/data.json`, {})
 	// 		.then((reply) => {
@@ -42,7 +41,7 @@ export default () => {
 			onClick={() => dispatch({ type: "toggleMenu" })}
 		>
 			home
-			<Menu
+			{/*<Menu
 				isOpen={isMenuOpened}
 				items={menu}
 				colors={menuColors}
@@ -52,7 +51,7 @@ export default () => {
 						view: view,
 					})
 				}
-			/>
+			/>*/}
 		</b>
 	);
 };
