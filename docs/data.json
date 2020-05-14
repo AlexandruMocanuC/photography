@@ -1,0 +1,39 @@
+{
+	"pages": [
+		{
+			"name": "home",
+			"heading": "Something",
+			"description": "Just a short description about you if needed. Could be longer, but also could be missed",
+			"galleries": [
+				{
+					"name": "events",
+					"image": ""
+				},
+				{ "name": "random", "image": "" },
+				{ "name": "couples", "image": "" },
+				{ "name": "family", "image": "" }
+			]
+		},
+		{
+			"name": "galleries",
+			"listing": [
+				{
+					"name": "events",
+					"content": ["events/poza.png", "events/screen.png"]
+				},
+				{ "name": "random", "content": [] },
+				{ "name": "couples", "content": [] },
+				{ "name": "family", "content": [] }
+			]
+		},
+		{ "name": "services", "heading": "test" },
+		{
+			"name": "contact",
+			"heading": "Get in touch",
+			"description": "Just say something nice or funny",
+			"email": "mocanu.alexandru20@yahoo.ro",
+			"phone": "+40727729068",
+			"featuredLink": "random"
+		}
+	]
+}
