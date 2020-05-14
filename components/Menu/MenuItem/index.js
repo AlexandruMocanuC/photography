@@ -8,7 +8,7 @@ export default ({ isSubItem, view, isSelected }) => {
 	const router = useRouter();
 	// console.log(router);
 	return (
-		<Link href={`/${view == "home" ? "" : view}`} shallow>
+		<Link href={`/${BASE}/${view == "home" ? "" : view}`} shallow>
 			<a>
 				<b
 					className={`${$.item} ${isSelected ? $.is_selected : ""} ${
