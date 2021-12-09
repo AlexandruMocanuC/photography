@@ -19,6 +19,6 @@
 	},
 	"devDependencies": {
 		"@zeit/next-css": "1.0.2-canary.2",
-		"next": "9.4.1-canary.2"
+		"next": "11.1.3"
 	}
 }
